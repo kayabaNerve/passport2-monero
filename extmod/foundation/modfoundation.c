@@ -28,6 +28,7 @@
 #include "modfoundation-bip39.h"
 #include "modfoundation-qr.h"
 #include "modfoundation-ur.h"
+#include "modfoundation-rust.h"
 
 /// package: foundation
 
@@ -156,7 +157,7 @@ STATIC mp_uint_t fixedbytesio_write(mp_obj_t o_in, const void *buf, mp_uint_t si
         *errcode = MP_EFBIG;
         return MP_STREAM_ERROR;
     }
-    
+
     // If there was a seek past EOF, clear the hole
     if (o->pos > o->vstr.len) {
         memset(o->vstr.buf + o->vstr.len, 0, o->pos - o->vstr.len);
@@ -275,6 +276,7 @@ STATIC const mp_rom_map_elem_t foundation_module_globals_table[] = {
     {MP_ROM_QSTR(MP_QSTR_bip39), MP_ROM_PTR(&mod_foundation_bip39_module)},
     {MP_ROM_QSTR(MP_QSTR_qr), MP_ROM_PTR(&mod_foundation_qr_module)},
     {MP_ROM_QSTR(MP_QSTR_ur), MP_ROM_PTR(&mod_foundation_ur_module)},
+    {MP_ROM_QSTR(MP_QSTR_rust), MP_ROM_PTR(&mod_foundation_rust_module)},
     {MP_ROM_QSTR(MP_QSTR_convert_rgb565_to_grayscale), MP_ROM_PTR(&mod_foundation_convert_rgb565_to_grayscale_obj)},
     {MP_ROM_QSTR(MP_QSTR_sha256), MP_ROM_PTR(&mod_foundation_sha256_obj)},
 };

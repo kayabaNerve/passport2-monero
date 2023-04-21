@@ -356,6 +356,18 @@ extern UR_Decoder UR_DECODER;
 extern UR_Encoder UR_ENCODER;
 
 /**
+ * # Safety
+ * This is a NOP.
+ */
+void setup_alloc(void);
+
+/**
+ * # Safety
+ * 200 kB of available RAM is needed.
+ */
+void setup_alloc(void);
+
+/**
  * Receive a Uniform Resource part.
  *
  * # Safety

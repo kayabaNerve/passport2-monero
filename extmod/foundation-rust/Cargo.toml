@@ -34,6 +34,21 @@ git = "https://github.com/Foundation-Devices/rust-ur-foundation"
 branch = "dev-v0.1.0"
 default-features = false
 
+[dependencies.cortex-m]
+version = "0.7"
+features = ["critical-section-single-core"]
+
+[dependencies.critical-section]
+version = "1"
+
+[dependencies.embedded-alloc]
+version = "0.5"
+
+[dependencies.monero-serai]
+git = "https://github.com/kayabaNerve/serai"
+branch = "foundation"
+default-features = false
+
 [features]
 default = []
 std = []

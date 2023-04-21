@@ -19,6 +19,8 @@ from utils import mem_info
 
 mem_info(label='Start main.py:')
 
+from foundation import rust
+rust.alloc_setup()
 
 def go():
     import common
