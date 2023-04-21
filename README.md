@@ -4,7 +4,11 @@ SPDX-FileCopyrightText: © 2021 Foundation Devices, Inc. <hello@foundationdevice
 SPDX-License-Identifier: GPL-3.0-or-later
 -->
 
-# Passport Wallet Firmware
+# Monero Firmware
+
+This firmware is not officially associated, endorsed, tested, or approved by Foundation Devices. I saw people asking for Monero support in Passport, and thought I could help start the process. I will be contributing to this minimally, if at all.
+
+# Passport Wallet
 
 Passport is an ultra-secure, open source hardware wallet for Bitcoin that offers excellent usability and a great design.
 
@@ -79,7 +83,7 @@ Passport's firmware incorporates open-source software from several third-party p
 -   [Foundation UR Python 1.0](https://github.com/Foundation-Devices/foundation-ur-py) - This is Foundation's Python port of the UR 1.0 standard from BlockChain Commons. It has the same goals as UR 2.0, but was more of an early experiment. Foundation Devices ported this to Python to be compatible with air-gapped software wallets like BlueWallet and Specter.  This standard is out of date and deprecated.  Foundation intends to remove support for UR 1.0 in the near future.
 
 ## Security Vulnerability Disclosure
-Please report suspected security vulnerabilities in private to security@foundationdevices.com. Please do NOT create publicly viewable issues for suspected security vulnerabilities.
+There is no security vulnerability process for the Monero firmware. If you found a security vulnerability related to the official firmware, follow the instructions found in this section of the official repository.
 
 ## Licensing
 
