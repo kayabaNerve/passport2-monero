@@ -22,6 +22,10 @@ mem_info(label='Start main.py:')
 from foundation import rust
 rust.alloc_setup()
 
+from foundation import monero
+print("Hello")
+print(monero.new_seed(bytes([0] * 32)))
+
 def go():
     import common
     import tasks

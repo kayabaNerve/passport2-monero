@@ -29,6 +29,7 @@
 #include "modfoundation-qr.h"
 #include "modfoundation-ur.h"
 #include "modfoundation-rust.h"
+#include "modfoundation-monero.h"
 
 /// package: foundation
 
@@ -277,6 +278,7 @@ STATIC const mp_rom_map_elem_t foundation_module_globals_table[] = {
     {MP_ROM_QSTR(MP_QSTR_qr), MP_ROM_PTR(&mod_foundation_qr_module)},
     {MP_ROM_QSTR(MP_QSTR_ur), MP_ROM_PTR(&mod_foundation_ur_module)},
     {MP_ROM_QSTR(MP_QSTR_rust), MP_ROM_PTR(&mod_foundation_rust_module)},
+    {MP_ROM_QSTR(MP_QSTR_monero), MP_ROM_PTR(&mod_foundation_monero_module)},
     {MP_ROM_QSTR(MP_QSTR_convert_rgb565_to_grayscale), MP_ROM_PTR(&mod_foundation_convert_rgb565_to_grayscale_obj)},
     {MP_ROM_QSTR(MP_QSTR_sha256), MP_ROM_PTR(&mod_foundation_sha256_obj)},
 };

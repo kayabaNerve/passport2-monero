@@ -4,6 +4,13 @@
 #![cfg_attr(not(feature = "std"), no_std)]
 #![allow(non_camel_case_types)]
 
+pub mod monero;
+pub mod ur;
+
+/// cbindgen:ignore
+#[cfg(not(feature = "std"))]
+mod stdout;
+
 /// cbindgen:ignore
 #[cfg(cortex_m)]
 #[global_allocator]
@@ -70,23 +77,13 @@ mod allocator {
     static ALLOCATOR: Allocator = Allocator;
 }
 
-pub mod ur;
-
-/// cbindgen:ignore
-#[cfg(not(feature = "std"))]
-mod stdout;
-
-/// # Safety
-/// This is a NOP.
 #[cfg(not(cortex_m))]
 #[no_mangle]
-pub unsafe extern "C" fn setup_alloc() {}
+pub extern "C" fn setup_alloc() {}
 
-/// # Safety
-/// 200 kB of available RAM is needed.
 #[cfg(cortex_m)]
 #[no_mangle]
-pub unsafe extern "C" fn setup_alloc() {
+pub extern "C" fn setup_alloc() {
     use core::mem::MaybeUninit;
     const HEAP_SIZE: usize = 200_000;
     static mut HEAP_MEM: [MaybeUninit<u8>; HEAP_SIZE] =

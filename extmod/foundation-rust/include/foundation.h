@@ -355,17 +355,13 @@ extern UR_Decoder UR_DECODER;
 
 extern UR_Encoder UR_ENCODER;
 
-/**
- * # Safety
- * This is a NOP.
- */
 void setup_alloc(void);
 
-/**
- * # Safety
- * 200 kB of available RAM is needed.
- */
 void setup_alloc(void);
+
+size_t monero_seed_new(const uint8_t (*entropy)[32],
+                       uint8_t *res,
+                       size_t res_len);
 
 /**
  * Receive a Uniform Resource part.

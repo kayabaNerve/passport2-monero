@@ -44,6 +44,14 @@ version = "1"
 [dependencies.embedded-alloc]
 version = "0.5"
 
+[dependencies.rand_core]
+version = "0.6"
+default-features = false
+
+[dependencies.rand_chacha]
+version = "0.3"
+default-features = false
+
 [dependencies.monero-serai]
 git = "https://github.com/kayabaNerve/serai"
 branch = "foundation"

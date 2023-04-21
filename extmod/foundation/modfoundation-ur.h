@@ -555,7 +555,7 @@ STATIC mp_obj_t mod_foundation_ur_decoder_receive(mp_obj_t ur_obj)
 
     mp_check_self(mp_obj_is_str(ur_obj));
     GET_STR_DATA_LEN(ur_obj, ur, ur_len);
-    
+
     if (!ur_decoder_receive(&UR_DECODER, ur, ur_len, &error)) {
         mod_foundation_ur_raise(&error);
     }

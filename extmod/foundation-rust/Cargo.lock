@@ -263,6 +263,8 @@ dependencies = [
  "heapless",
  "minicbor",
  "monero-serai",
+ "rand_chacha",
+ "rand_core 0.6.4",
  "ur",
  "ur-foundation",
  "uuid",
