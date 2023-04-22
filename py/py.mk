@@ -331,8 +331,7 @@ PY_EXTMOD_O_BASENAME = \
 	extmod/bufhelper.o \
 	extmod/foundation/modfoundation.o \
 	extmod/foundation/bip39_utils.o \
-    extmod/foundation/bip39_word_info.o \
-    extmod/foundation/bytewords_word_info.o \
+    extmod/foundation/monero_classic_en_word_info.o \
     extmod/foundation/modtcc-codecs.o \
     extmod/foundation/strnlen.o \
     extmod/foundation/image_conversion.o \

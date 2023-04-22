@@ -11,7 +11,7 @@ in a different language.
 
 To compile it:
 
-    gcc word_list_gen.c bip39_words.c bytewords_words.c -o word_list_gen
+    gcc word_list_gen.c bip39_words.c -o word_list_gen
 
 To generate the word_info_t array:
 

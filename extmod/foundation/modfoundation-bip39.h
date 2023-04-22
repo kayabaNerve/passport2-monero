@@ -38,7 +38,7 @@ STATIC mp_obj_t mod_foundation_bip39_get_words_matching_prefix(size_t n_args, co
     if (strcmp("monero_classic_en", (char *)word_list_str) == 0)
     {
         word_info = monero_classic_en_word_info;
-        num_words = 1625;
+        num_words = 1626;
     }
     else
     {

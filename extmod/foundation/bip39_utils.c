@@ -13,7 +13,7 @@
 
 #include "bip39_utils.h"
 
-extern word_info_t bip39_word_info[];
+extern word_info_t monero_classic_en_word_info[];
 
 #ifdef UNUSED_CODE
 uint32_t letter_to_number(char ch) {

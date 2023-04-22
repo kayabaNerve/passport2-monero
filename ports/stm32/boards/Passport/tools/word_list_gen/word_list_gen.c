@@ -8,10 +8,9 @@
 #include <string.h>
 
 uint32_t NUM_WORDS = 0;
-#define MAX_WORD_LEN 8
+#define MAX_WORD_LEN 12
 
-extern const char* bip39_words[];
-extern const char* bytewords_words[];
+extern const char* monero_classic_en_words[];
 
 #include <assert.h>
 #include <stdint.h>
@@ -119,18 +118,15 @@ void make_num_pairs_array(const char** words, char* prefix) {
 }
 
 void printUsage() {
-    printf("Usage: word_list_gen [bip39|bytewords]\n");
+    printf("Usage: word_list_gen [monero_classic_en]\n");
 }
 
 int main(int argc, char** argv) {
     const char** words = NULL;
     if (argc > 1) {
-        if (strcmp(argv[1], "bip39") == 0) {
-            words     = bip39_words;
-            NUM_WORDS = 2048;
-        } else if (strcmp(argv[1], "bytewords") == 0) {
-            words     = bytewords_words;
-            NUM_WORDS = 256;
+        if (strcmp(argv[1], "monero_classic_en") == 0) {
+            words     = monero_classic_en_words;
+            NUM_WORDS = 1626;
         }
     }
 
