@@ -10,13 +10,9 @@ import trezorcrypto
 async def get_seed_words_task(on_done):
     try:
         with stash.SensitiveValues() as sv:
-            assert sv.mode == 'words'
-
-            words = trezorcrypto.bip39.from_data(sv.raw).split(' ')
-
-            passphrase = stash.bip39_passphrase or None
-
-            await on_done(words, passphrase, None)
+            from foundation import monero
+            words = monero.seed_to_string(sv.raw).split(' ')
+            await on_done(words, None)
 
     except Exception as e:
         # print('get_seed_words_task(): Exception: {}'.format(e))

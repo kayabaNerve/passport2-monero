@@ -22,7 +22,7 @@ class PredictiveTextInputPage(Page):
 
     def __init__(self,
                  title='Enter word {word_idx} of {total_words}',
-                 word_list='bip39',
+                 word_list='monero_classic_en',
                  total_words=24,
                  card_header=None,
                  statusbar=None,

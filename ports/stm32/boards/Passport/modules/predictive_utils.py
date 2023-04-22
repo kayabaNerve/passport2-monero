@@ -46,7 +46,7 @@ def word_to_keypad_numbers(word):
     return result
 
 
-def get_words_matching_prefix(prefix, max=5, word_list='bip39'):
+def get_words_matching_prefix(prefix, max=5, word_list='monero_classic_en'):
     from foundation import bip39
 
     # This actually handles bytewords too, depsite the name :(

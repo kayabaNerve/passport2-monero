@@ -6,7 +6,7 @@
 
 from flows import Flow
 import microns
-from pages import ErrorPage, PredictiveTextInputPage, SeedLengthChooserPage, SuccessPage, QuestionPage
+from pages import ErrorPage, PredictiveTextInputPage, SuccessPage, QuestionPage
 from utils import spinner_task
 from tasks import save_seed_task
 
@@ -18,11 +18,8 @@ class RestoreSeedFlow(Flow):
         self.seed_words = []
 
     async def choose_seed_len(self):
-        self.seed_length = await SeedLengthChooserPage().show()
-        if self.seed_length is None:
-            self.set_result(False)
-        else:
-            self.goto(self.explain_input_method)
+        self.seed_length = 25
+        self.goto(self.explain_input_method)
 
     async def explain_input_method(self):
         from pages import InfoPage
@@ -35,7 +32,7 @@ class RestoreSeedFlow(Flow):
 
     async def enter_seed_words(self):
         result = await PredictiveTextInputPage(
-            word_list='bip39',
+            word_list='monero_classic_en',
             total_words=self.seed_length,
             initial_words=self.seed_words).show()
         if result is None:

@@ -14,13 +14,12 @@ import chains
 from utils import sign_message_digest
 
 
-async def sign_text_file_task(on_done, text, subpath, addr_fmt):
+async def sign_text_file_task(on_done, text, account, address, addr_fmt):
 
     with stash.SensitiveValues() as sv:
-        node = sv.derive_path(subpath)
-        address = sv.chain.address(node, addr_fmt)
+        address = sv.derive_path(account, address)
 
     digest = chains.current_chain().hash_message(text.encode())
-    signature = sign_message_digest(digest, subpath)
+    signature = sign_message_digest(digest, account, address)
 
     await on_done(signature, address, None)

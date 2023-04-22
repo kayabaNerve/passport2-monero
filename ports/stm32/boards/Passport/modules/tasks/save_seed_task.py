@@ -16,7 +16,7 @@ async def save_seed_task(on_done, seed_bits):
     from common import pa
     import stash
 
-    secret = SecretStash.encode(seed_bits=seed_bits)
+    secret = SecretStash.encode(seed_bits)
 
     pa.change(new_secret=secret)
 

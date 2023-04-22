@@ -29,12 +29,9 @@ class SeedWordsListPage(Page):
         self.prev_card_descs = None
         self.prev_card_idx = None
 
-        if len(self.words) == 24:
-            self.num_pages = 2
+        if len(self.words) == 25:
+            self.num_pages = 3
             right_micron = microns.Forward
-        else:
-            self.num_pages = 1
-            right_micron = microns.Checkmark
 
         super().__init__(
             card_header=card_header,
@@ -54,10 +51,7 @@ class SeedWordsListPage(Page):
         with Stylize(self.container) as default:
             default.flex_fill()
             # default.bg_color(RED, opa=64)
-            if len(words) == 24:
-                default.pad(top=8, bottom=8)
-            else:
-                default.align(lv.ALIGN.CENTER)
+            default.pad(top=8, bottom=8)
             default.pad_col(4)
 
         with Stylize(self, selector=lv.PART.SCROLLBAR) as scrollbar:
@@ -78,21 +72,23 @@ class SeedWordsListPage(Page):
         number_views = [None] * _NUM_COLUMNS
         word_views = [None] * _NUM_COLUMNS
 
-        words_per_page = len(self.words) // self.num_pages
+        words_per_page = 12
 
         words_per_column = words_per_page // _NUM_COLUMNS
+        if words_per_column == 0:
+            words_per_column = 1
         word_idx = self.page_idx * words_per_page
         for col in range(_NUM_COLUMNS):
+            if word_idx == len(self.words):
+                continue
+
             number_views[col] = View(flex_flow=lv.FLEX_FLOW.COLUMN)
 
             number_views[col].set_size(20, lv.pct(100))
             number_views[col].set_no_scroll()
             with Stylize(number_views[col]) as default:
                 # default.bg_color(BLUE, opa=64)
-                if len(self.words) == 24:
-                    default.pad_row(6)
-                else:
-                    default.pad_row(4)
+                default.pad_row(6)
 
             word_views[col] = View(flex_flow=lv.FLEX_FLOW.COLUMN)
             word_views[col].set_width(lv.SIZE.CONTENT)
@@ -101,10 +97,7 @@ class SeedWordsListPage(Page):
             with Stylize(word_views[col]) as default:
                 # default.bg_color(GREEN, opa=64)
                 default.flex_fill()
-                if len(self.words) == 24:
-                    default.pad_row(6)
-                else:
-                    default.pad_row(4)
+                default.pad_row(6)
 
             for w in range(words_per_column):
                 # Add the number

@@ -995,10 +995,10 @@ def split_to_lines(s, width):
     return '\n'.join([s[i:i + width] for i in range(0, len(s), width)])
 
 
-def sign_message_digest(digest, subpath):
+def sign_message_digest(digest, account, address):
     # do the signature itself!
     with stash.SensitiveValues() as sv:
-        node = sv.derive_path(subpath)
+        node = sv.derive_path(account, address)
         pk = node.private_key()
         sv.register(pk)
 

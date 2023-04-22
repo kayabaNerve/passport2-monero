@@ -19,7 +19,7 @@ class ViewSeedWordsFlow(Flow):
     async def show_intro(self):
         result = await InfoPage(
             icon=lv.LARGE_ICON_SEED,
-            text='Passport is about to display your seed words and, if defined, your passphrase.',
+            text='Passport is about to display your seed words.',
             left_micron=microns.Back, right_micron=microns.Forward).show()
 
         if result:
@@ -37,12 +37,10 @@ class ViewSeedWordsFlow(Flow):
 
     async def show_seed_words(self):
 
-        (words, passphrase, error) = await spinner_task('Retrieving Seed', get_seed_words_task)
+        (words, error) = await spinner_task('Retrieving Seed', get_seed_words_task)
         if error is None and words is not None:
             from pages import SeedWordsListPage
             result = await SeedWordsListPage(words=words).show()
-            if stash.bip39_passphrase != '':
-                await InfoPage(text='Passphrase: {}'.format(stash.bip39_passphrase)).show()
             self.set_result(result)
         else:
             await ErrorPage(text='Unable to retrieve seed: {}'.format(error)).show()
