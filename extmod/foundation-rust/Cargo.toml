@@ -34,6 +34,10 @@ git = "https://github.com/Foundation-Devices/rust-ur-foundation"
 branch = "dev-v0.1.0"
 default-features = false
 
+[dependencies.zeroize]
+version = "^1.5"
+features = ["zeroize_derive"]
+
 [dependencies.cortex-m]
 version = "0.7"
 features = ["critical-section-single-core"]
@@ -51,6 +55,11 @@ default-features = false
 [dependencies.rand_chacha]
 version = "0.3"
 default-features = false
+
+[dependencies.curve25519-dalek]
+version = "^3.2"
+default-features = false
+features = ["alloc", "u32_backend"]
 
 [dependencies.monero-serai]
 git = "https://github.com/kayabaNerve/serai"

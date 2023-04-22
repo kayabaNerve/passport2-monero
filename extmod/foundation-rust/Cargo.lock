@@ -259,6 +259,7 @@ version = "0.1.0"
 dependencies = [
  "cortex-m",
  "critical-section",
+ "curve25519-dalek",
  "embedded-alloc",
  "heapless",
  "minicbor",
@@ -268,6 +269,7 @@ dependencies = [
  "ur",
  "ur-foundation",
  "uuid",
+ "zeroize",
 ]
 
 [[package]]
