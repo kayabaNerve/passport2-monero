@@ -13,8 +13,7 @@
 
 #define MATCHES_LEN 80
 
-extern word_info_t bip39_word_info[];
-extern word_info_t bytewords_word_info[]; // TODO: Restructure this so bip39 and bytewords are separate
+extern word_info_t monero_classic_en_word_info[];
 
 /// package: foundation.bip39
 
@@ -36,15 +35,10 @@ STATIC mp_obj_t mod_foundation_bip39_get_words_matching_prefix(size_t n_args, co
 
     const word_info_t *word_info = NULL;
     uint32_t num_words = 0;
-    if (strcmp("bip39", (char *)word_list_str) == 0)
+    if (strcmp("monero_classic_en", (char *)word_list_str) == 0)
     {
-        word_info = bip39_word_info;
-        num_words = 2048;
-    }
-    else if (strcmp("bytewords", (char *)word_list_str) == 0)
-    {
-        word_info = bytewords_word_info;
-        num_words = 256;
+        word_info = monero_classic_en_word_info;
+        num_words = 1625;
     }
     else
     {

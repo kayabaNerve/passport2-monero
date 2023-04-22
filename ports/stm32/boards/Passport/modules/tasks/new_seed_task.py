@@ -16,4 +16,8 @@ async def new_seed_task(on_done):
     seed = trezorcrypto.sha256(seed).digest()
     # print('create_new_wallet_seed(): New seed = {}'.format(b2a_hex(seed)))
 
+    seed = monero.new_seed(bytes(seed))
+    # This will only happen if an improper call occurred
+    assert seed != False
+
     await on_done(seed, None)

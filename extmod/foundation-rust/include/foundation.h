@@ -363,6 +363,10 @@ size_t monero_seed_new(const uint8_t (*entropy)[32],
                        uint8_t *res,
                        size_t res_len);
 
+size_t monero_seed_to_string(const uint8_t (*seed)[32],
+                             uint8_t *res,
+                             size_t res_len);
+
 /**
  * Receive a Uniform Resource part.
  *
